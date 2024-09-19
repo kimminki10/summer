@@ -92,13 +92,17 @@ WSGI_APPLICATION = 'summer.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'cloud_mysql': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': config('azure_mysql_database'),
         'USER': config('azure_mysql_username'),
         'PASSWORD': config('azure_mysql_password'),
         'HOST': config('azure_mysql_hostname'),
         'PORT': config('azure_mysql_port'),
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
